@@ -40,3 +40,8 @@
 .read-the-docs {
   color: #888;
 }
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
