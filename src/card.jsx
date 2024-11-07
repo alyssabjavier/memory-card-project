@@ -9,22 +9,26 @@ function Card() {
         {
             name: 'Amber',
             giphyID: 'RYP6vHsRTMA4IlpGVr',
-            ID: 0 
+            ID: 0,
+            state: 'unclicked' 
         },
         {
             name: 'Zhongli',
             giphyID: 'GOaMRxfIqqnvbfF84h',
-            ID: 1
+            ID: 1,
+            state: 'unclicked' 
         },
         {
             name: 'Klee',
             giphyID: 'YNt4yT6ZMAgYrQJv6p',
-            ID: 2
+            ID: 2,
+            state: 'unclicked' 
         },
         {
             name: 'Xiao',
             giphyID: '1DUjaXwCAsSwm26jVO',
-            ID: 3
+            ID: 3,
+            state: 'unclicked' 
         },
         // {
         //     name: 'Keqing',
@@ -63,9 +67,10 @@ function Card() {
 
     const shuffledGifs = gifs.sort((a, b) => 0.5 - Math.random());
 
-    function handleClick() {
-      alert('hello world :)');
+    const handleClick = (char) => {
       setScore(score + 1);
+      char.state = 'clicked';
+      console.log(`${char.state}`)
     }
 
     return (
@@ -75,7 +80,8 @@ function Card() {
           shuffledGifs.map((char) => (
             <div key={char.ID}>
               <h1>{char.name}</h1>
-              <img src={char.gifURL} alt={`${char.name} gif`} onClick={handleClick} />
+              <p>{char.state}</p>
+              <img src={char.gifURL} alt={`${char.name} gif`} onClick={() => handleClick(char)} />
             </div>
           ))
         ) : (
